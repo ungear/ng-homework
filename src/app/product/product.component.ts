@@ -14,8 +14,12 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
   }
 
-  onBuyClick() {
+  onAddClick() {
     console.log(`${this.data.name} added to cart`)
     this.cartService.addProductToCart(this.data)
+  }
+
+  onRemoveClick() {
+    this.cartService.removeProductFromCart(this.data)
   }
 }
