@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Product } from "../types/product";
-import { CartService } from "./services/cart.service";
+import { Product } from '../types/product';
+import { CartService } from './services/cart.service';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +8,8 @@ import { CartService } from "./services/cart.service";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  purchasedProducts: Product[] = []
+  purchasedProducts: Product[] = [];
   constructor(private cartService: CartService) {
-    this.cartService.purchasedProducts$.subscribe(p => this.purchasedProducts = p)
+    this.cartService.purchasedProducts$.subscribe(p => this.purchasedProducts = p);
   }
 }

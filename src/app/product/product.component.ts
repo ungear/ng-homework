@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Product } from "../../types/product";
-import { CartService } from "../services/cart.service";
+import { Product } from '../../types/product';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-product',
@@ -15,11 +15,11 @@ export class ProductComponent implements OnInit {
   }
 
   onAddClick() {
-    console.log(`${this.data.name} added to cart`)
-    this.cartService.addProductToCart(this.data)
+    console.log(`${this.data.name} added to cart`);
+    this.cartService.addProductToCart(this.data);
   }
 
   onRemoveClick() {
-    this.cartService.removeProductFromCart(this.data)
+    this.cartService.removeProductFromCart(this.data);
   }
 }
