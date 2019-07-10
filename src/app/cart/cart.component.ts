@@ -7,10 +7,6 @@ import { Product } from '../../types/product';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss']
 })
-export class CartComponent implements OnInit {
+export class CartComponent {
   @Input() purchasedProducts: Product[];
-
-  ngOnInit() {
-  }
-
 }

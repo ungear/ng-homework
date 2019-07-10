@@ -10,6 +10,7 @@ import { CartService } from './services/cart.service';
 })
 export class AppComponent {
   purchasedProducts: Product[] = [];
+
   constructor(private cartService: CartService) {
     this.cartService.purchasedProducts$.subscribe(p => this.purchasedProducts = p);
   }

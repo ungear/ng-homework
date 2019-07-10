@@ -8,12 +8,10 @@ import { CartService } from '../services/cart.service';
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss']
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent {
   @Input() data: Product;
-  constructor(private cartService: CartService) { }
 
-  ngOnInit() {
-  }
+  constructor(private cartService: CartService) { }
 
   onAddClick() {
     console.log(`${this.data.name} added to cart`);
