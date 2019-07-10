@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { scan } from 'rxjs/operators';
 
-import { Product } from '../../types/product';
+import { Product } from '../../../types/product';
 
 interface CartCommand {
   product: Product;
