@@ -29,8 +29,9 @@ export class CartService {
               break;
             case 'delete':
               const ind = acc.indexOf(cur.product);
-              if (ind >= 0)
+              if (ind >= 0) {
                 acc.splice(ind, 1);
+              }
               break;
             default:
               break;
