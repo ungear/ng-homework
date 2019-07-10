@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+
+import { Subject } from 'rxjs';
+import { scan } from 'rxjs/operators';
+
 import { Product } from '../../types/product';
-import { scan, map } from 'rxjs/operators';
 
 interface CartCommand {
   product: Product;
