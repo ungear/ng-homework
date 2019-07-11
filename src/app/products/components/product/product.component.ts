@@ -11,7 +11,11 @@ import { CartService } from '../../../shared/services/cart.service';
 export class ProductComponent {
   @Input() data: Product;
 
-  constructor(private cartService: CartService) { }
+  // Этот компонет получил данные от родителя,
+  // Не стоит их тут обрабатывать сервисом
+  // Я бы сгенерил output тем самым убрал бы зависимость
+  // а в родительском компоненте уже что-то делал с данными
+  constructor(private cartService: CartService) {}
 
   onAddClick() {
     console.log(`${this.data.name} added to cart`);
