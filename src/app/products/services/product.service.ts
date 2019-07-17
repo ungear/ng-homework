@@ -14,14 +14,14 @@ export class ProductService {
       {
         name: 'SICP',
         description: 'a programming book',
-        price: 123,
+        price: 10,
         category: Category.Book,
         isAvailable: true,
       },
       {
         name: 'Cheese',
         description: 'soft French cheese',
-        price: 321,
+        price: 1,
         category: Category.Food,
         isAvailable: true,
       },

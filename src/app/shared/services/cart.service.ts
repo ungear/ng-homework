@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 import { scan } from 'rxjs/operators';
 
 import { Product } from '../../../types/product';
+import { Cart } from 'src/types/cart';
 
 interface CartCommand {
   product: Product;
@@ -18,27 +19,28 @@ export class CartService {
   constructor() { }
 
   private cartCommandsSubj = new Subject<CartCommand>();
-  purchasedProducts$ = this.cartCommandsSubj
+  cart$ = this.cartCommandsSubj
     .asObservable()
     .pipe(
-      scan<CartCommand, Product[]>(
+      scan<CartCommand, Cart>(
         (acc, cur) => {
           switch (cur.command) {
             case 'add':
-              acc.push(cur.product);
+              addProductToCart(acc, cur.product)
               break;
             case 'delete':
-              const ind = acc.indexOf(cur.product);
-              if (ind >= 0) {
-                acc.splice(ind, 1);
-              }
+              removeProductFromCart(acc, cur.product)
               break;
             default:
               break;
           }
           return acc;
         },
-        []
+        {
+          items: [],
+          totalPrice: 0,
+          totalAmount: 0
+        }
       )
     );
 
@@ -53,5 +55,29 @@ export class CartService {
       product,
       command: 'delete'
     });
+  }
+}
+
+function addProductToCart(cart: Cart, pr: Product){
+  let productInCart = cart.items.find(x => x.product.name === pr.name);
+  if(productInCart)
+    productInCart.amount++;
+  else
+    cart.items.push({product: pr, amount: 1})
+
+  cart.totalAmount++;
+  cart.totalPrice += pr.price
+}
+
+function removeProductFromCart(cart: Cart, pr: Product){
+  let productInCart = cart.items.find(x => x.product.name === pr.name);
+  if(productInCart){
+    productInCart.amount--;
+    cart.totalAmount--;
+    cart.totalPrice -= pr.price
+    if(productInCart.amount === 0){
+      let itemIndex = cart.items.indexOf(productInCart);
+      cart.items.splice(itemIndex,1)
+    }
   }
 }

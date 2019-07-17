@@ -1,6 +1,8 @@
 <p>Cart</p>
-<ng-container *ngIf="purchasedProducts.length; else emptyCart">
-  <app-cart-item *ngFor="let p of purchasedProducts" [product]="p"></app-cart-item>
+<ng-container *ngIf="cartItems.length; else emptyCart">
+  <app-cart-item *ngFor="let ci of cartItems" [cartItem]="ci"></app-cart-item>
+  <div>Total items: {{totalAmount}}</div>
+  <div>Total price: {{totalPrice}}</div>
 </ng-container>
 
 

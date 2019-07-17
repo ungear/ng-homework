@@ -1,16 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Product } from 'src/types/product';
+import { CartItem } from 'src/types/cart';
 
 @Component({
   selector: 'app-cart-item',
   templateUrl: './cart-item.component.html',
   styleUrls: ['./cart-item.component.scss']
 })
-export class CartItemComponent implements OnInit {
-  @Input() product: Product;
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class CartItemComponent {
+  @Input() cartItem: CartItem;
 }
