@@ -1,6 +1,7 @@
 <div>
   <div>Name: {{data.name}}</div>
   <div>Description: {{data.description}}</div>
+  <div>Price: {{data.price}}</div>
   <div>
     <button (click)="onAddClick()" [disabled]="!data.isAvailable">Add to cart</button>
     <button (click)="onRemoveClick()">Remove from cart</button>
