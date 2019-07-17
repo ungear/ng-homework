@@ -25,4 +25,8 @@ export class ProductListComponent implements OnInit {
     this.cartService.addProductToCart(pr);
   }
 
+  onRemoveFromCart(pr: Product) {
+    this.cartService.removeProductFromCart(pr);
+  }
+
 }

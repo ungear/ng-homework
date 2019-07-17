@@ -10,12 +10,12 @@ import { Product } from '../../../../types/product';
 export class ProductComponent {
   @Input() data: Product;
   @Output() addToCart = new EventEmitter<Product>();
-
+  @Output() removeFromCart = new EventEmitter<Product>();
   onAddClick() {
     this.addToCart.emit(this.data);
   }
 
   onRemoveClick() {
-    //this.cartService.removeProductFromCart(this.data);
+    this.removeFromCart.emit(this.data);
   }
 }
