@@ -1,2 +1,2 @@
 <p>Products:</p>
-<app-product *ngFor="let p of productsCollection" [data]="p"></app-product>
+<app-product *ngFor="let p of productsCollection" [data]="p" (addToCart)="onAddToCart($event)"></app-product>
