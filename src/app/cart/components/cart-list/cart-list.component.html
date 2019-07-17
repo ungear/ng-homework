@@ -1,6 +1,10 @@
 <p>Cart</p>
 <ng-container *ngIf="cartItems.length; else emptyCart">
-  <app-cart-item *ngFor="let ci of cartItems" [cartItem]="ci"></app-cart-item>
+  <app-cart-item 
+    *ngFor="let ci of cartItems" 
+    [cartItem]="ci"
+    (incrementAmount)="onCartItemIncrementAmount(ci)"
+    (decrementAmount)="onCartItemDecrementAmount(ci)"></app-cart-item>
   <div>Total items: {{totalAmount}}</div>
   <div>Total price: {{totalPrice}}</div>
 </ng-container>

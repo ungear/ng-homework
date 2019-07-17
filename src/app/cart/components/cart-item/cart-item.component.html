@@ -1,1 +1,6 @@
-<p>{{cartItem.product.name}} - {{cartItem.amount}}</p>
+<span>{{cartItem.product.name}} x {{cartItem.amount}}</span>
+<span>  
+  <button (click)="onIncrementAmountClick()">+</button>
+  <button (click)="onDecrementAmountClick()">-</button>
+</span>
+

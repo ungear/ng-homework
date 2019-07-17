@@ -22,4 +22,12 @@ export class CartListComponent {
     this.totalAmount = cart.totalAmount;
   }
 
+  onCartItemIncrementAmount(ci: CartItem){
+    this.cartService.addProductToCart(ci.product)
+  }
+
+  onCartItemDecrementAmount(ci: CartItem){
+    this.cartService.removeProductFromCart(ci.product)
+  }
+
 }

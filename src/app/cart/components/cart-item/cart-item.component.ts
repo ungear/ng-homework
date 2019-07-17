@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CartItem } from 'src/types/cart';
 
 @Component({
@@ -8,4 +8,14 @@ import { CartItem } from 'src/types/cart';
 })
 export class CartItemComponent {
   @Input() cartItem: CartItem;
+  @Output() incrementAmount = new EventEmitter()
+  @Output() decrementAmount = new EventEmitter()
+
+  onIncrementAmountClick(){
+    this.incrementAmount.emit()
+  }
+
+  onDecrementAmountClick(){
+    this.decrementAmount.emit()
+  }
 }
