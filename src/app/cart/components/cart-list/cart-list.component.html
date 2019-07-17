@@ -1,7 +1,7 @@
 <p>Cart</p>
 <ng-container *ngIf="cartItems.length; else emptyCart">
   <app-cart-item 
-    *ngFor="let ci of cartItems" 
+    *ngFor="let ci of cartItems"
     [cartItem]="ci"
     (incrementAmount)="onCartItemIncrementAmount(ci)"
     (decrementAmount)="onCartItemDecrementAmount(ci)"></app-cart-item>
