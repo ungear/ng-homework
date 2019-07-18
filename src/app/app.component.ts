@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ViewChild, ElementRef, OnInit, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +6,12 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit  {
+  @ViewChild("appTitle", {static: false}) appTitle: ElementRef;
+
   constructor() { }
+
+  ngAfterViewInit (): void {
+    this.appTitle.nativeElement.innerText = "Angular Homework";
+  }
 }
