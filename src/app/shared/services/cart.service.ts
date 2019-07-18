@@ -26,10 +26,10 @@ export class CartService {
         (acc, cur) => {
           switch (cur.command) {
             case 'add':
-              addProductToCart(acc, cur.product)
+              addProductToCart(acc, cur.product);
               break;
             case 'delete':
-              removeProductFromCart(acc, cur.product)
+              removeProductFromCart(acc, cur.product);
               break;
             default:
               break;
@@ -58,33 +58,33 @@ export class CartService {
   }
 }
 
-function addProductToCart(cart: Cart, pr: Product){
-  let itemInCart = cart.items.find(x => x.product.name === pr.name);
-  if(itemInCart){
+function addProductToCart(cart: Cart, pr: Product) {
+  const itemInCart = cart.items.find(x => x.product.name === pr.name);
+  if (itemInCart) {
     itemInCart.amount++;
-    let itemIndex = cart.items.indexOf(itemInCart)
+    const itemIndex = cart.items.indexOf(itemInCart);
     // copy an item to have a new object link and ensure OnPush strategy update
-    cart.items[itemIndex] = {...itemInCart}
+    cart.items[itemIndex] = {...itemInCart};
+  } else {
+    cart.items.push({product: pr, amount: 1});
   }
-  else
-    cart.items.push({product: pr, amount: 1})
 
   cart.totalAmount++;
-  cart.totalPrice += pr.price; 
+  cart.totalPrice += pr.price;
 }
 
-function removeProductFromCart(cart: Cart, pr: Product){
-  let itemInCart = cart.items.find(x => x.product.name === pr.name);
-  if(itemInCart){
+function removeProductFromCart(cart: Cart, pr: Product) {
+  const itemInCart = cart.items.find(x => x.product.name === pr.name);
+  if (itemInCart) {
     itemInCart.amount--;
     cart.totalAmount--;
-    cart.totalPrice -= pr.price
-    let itemIndex = cart.items.indexOf(itemInCart);
-    if(itemInCart.amount === 0){
-      cart.items.splice(itemIndex,1)
-    } else{
+    cart.totalPrice -= pr.price;
+    const itemIndex = cart.items.indexOf(itemInCart);
+    if (itemInCart.amount === 0) {
+      cart.items.splice(itemIndex, 1);
+    } else {
       // copy an item to have a new object link and ensure OnPush strategy update
-      cart.items[itemIndex] = {...itemInCart}
+      cart.items[itemIndex] = {...itemInCart};
     }
   }
 }

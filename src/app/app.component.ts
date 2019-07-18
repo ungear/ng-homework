@@ -7,11 +7,11 @@ import { Component, ChangeDetectionStrategy, ViewChild, ElementRef, OnInit, Afte
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements AfterViewInit  {
-  @ViewChild("appTitle", {static: false}) appTitle: ElementRef;
+  @ViewChild('appTitle', {static: false}) appTitle: ElementRef;
 
   constructor() { }
 
-  ngAfterViewInit (): void {
-    this.appTitle.nativeElement.innerText = "Angular Homework";
+  ngAfterViewInit(): void {
+    this.appTitle.nativeElement.innerText = 'Angular Homework';
   }
 }

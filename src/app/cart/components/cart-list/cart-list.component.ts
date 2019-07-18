@@ -13,25 +13,25 @@ export class CartListComponent {
   totalPrice: number;
   totalAmount: number;
   constructor(
-    private cartService: CartService, 
+    private cartService: CartService,
     private cdr: ChangeDetectorRef
   ) {
-    cartService.cart$.subscribe(x => {this.onCartUpdated(x)})
+    cartService.cart$.subscribe(x => {this.onCartUpdated(x); });
   }
 
-  onCartUpdated(cart: Cart){
+  onCartUpdated(cart: Cart) {
     this.cartItems = cart.items;
     this.totalPrice = cart.totalPrice;
     this.totalAmount = cart.totalAmount;
     this.cdr.detectChanges();
   }
 
-  onCartItemIncrementAmount(ci: CartItem){
-    this.cartService.addProductToCart(ci.product)
+  onCartItemIncrementAmount(ci: CartItem) {
+    this.cartService.addProductToCart(ci.product);
   }
 
-  onCartItemDecrementAmount(ci: CartItem){
-    this.cartService.removeProductFromCart(ci.product)
+  onCartItemDecrementAmount(ci: CartItem) {
+    this.cartService.removeProductFromCart(ci.product);
   }
-  
+
 }
