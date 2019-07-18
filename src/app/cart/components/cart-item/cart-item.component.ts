@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, HostListener, HostBinding } from '@angular/core';
 import { CartItem } from 'src/types/cart';
 
 
@@ -13,6 +13,18 @@ export class CartItemComponent {
   @Output() incrementAmount = new EventEmitter()
   @Output() decrementAmount = new EventEmitter()
 
+  @HostBinding('class.focused') isFocused: boolean = false;
+  @HostListener("mouseover") 
+  private onHostMouseOver(){
+    this.isFocused = true;
+  }
+
+  @HostListener("mouseout") 
+  private onHostMouseOut(){
+    this.isFocused = false;
+  }
+  
+
   onIncrementAmountClick(){
     this.incrementAmount.emit()
   }
@@ -20,4 +32,5 @@ export class CartItemComponent {
   onDecrementAmountClick(){
     this.decrementAmount.emit()
   }
+
 }
