@@ -4,7 +4,8 @@
     *ngFor="let ci of cartItems"
     [cartItem]="ci"
     (incrementAmount)="onCartItemIncrementAmount(ci)"
-    (decrementAmount)="onCartItemDecrementAmount(ci)"></app-cart-item>
+    (decrementAmount)="onCartItemDecrementAmount(ci)"
+    appHighlight></app-cart-item>
   <div>Total items: {{totalAmount}}</div>
   <div>Total price: {{totalPrice}}</div>
 </ng-container>
