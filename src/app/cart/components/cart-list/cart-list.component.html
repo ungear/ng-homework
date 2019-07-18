@@ -6,8 +6,13 @@
     (incrementAmount)="onCartItemIncrementAmount(ci)"
     (decrementAmount)="onCartItemDecrementAmount(ci)"
     appHighlight></app-cart-item>
-  <div>Total items: {{totalAmount}}</div>
-  <div>Total price: {{totalPrice}}</div>
+  <div style="display: flex; justify-content: space-between; padding-right: 20px;">
+    <div>
+      <div>Total items: {{totalAmount}}</div>
+      <div>Total price: {{totalPrice}}</div>
+    </div>
+    <div class="spinner" [ngStyle]="{'transform': 'rotate('+totalPrice*10+'deg)'}">💲</div>
+  </div>
 </ng-container>
 
 
