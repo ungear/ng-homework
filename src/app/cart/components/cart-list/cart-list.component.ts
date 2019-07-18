@@ -33,5 +33,5 @@ export class CartListComponent {
   onCartItemDecrementAmount(ci: CartItem){
     this.cartService.removeProductFromCart(ci.product)
   }
-
+  
 }

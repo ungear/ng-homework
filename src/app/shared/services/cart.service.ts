@@ -59,25 +59,32 @@ export class CartService {
 }
 
 function addProductToCart(cart: Cart, pr: Product){
-  let productInCart = cart.items.find(x => x.product.name === pr.name);
-  if(productInCart)
-    productInCart.amount++;
+  let itemInCart = cart.items.find(x => x.product.name === pr.name);
+  if(itemInCart){
+    itemInCart.amount++;
+    let itemIndex = cart.items.indexOf(itemInCart)
+    // copy an item to have a new object link and ensure OnPush strategy update
+    cart.items[itemIndex] = {...itemInCart}
+  }
   else
     cart.items.push({product: pr, amount: 1})
 
   cart.totalAmount++;
-  cart.totalPrice += pr.price
+  cart.totalPrice += pr.price; 
 }
 
 function removeProductFromCart(cart: Cart, pr: Product){
-  let productInCart = cart.items.find(x => x.product.name === pr.name);
-  if(productInCart){
-    productInCart.amount--;
+  let itemInCart = cart.items.find(x => x.product.name === pr.name);
+  if(itemInCart){
+    itemInCart.amount--;
     cart.totalAmount--;
     cart.totalPrice -= pr.price
-    if(productInCart.amount === 0){
-      let itemIndex = cart.items.indexOf(productInCart);
+    let itemIndex = cart.items.indexOf(itemInCart);
+    if(itemInCart.amount === 0){
       cart.items.splice(itemIndex,1)
+    } else{
+      // copy an item to have a new object link and ensure OnPush strategy update
+      cart.items[itemIndex] = {...itemInCart}
     }
   }
 }
