@@ -14,7 +14,7 @@ interface CartCommand {
 @Injectable({
   providedIn: 'root'
 })
-export class CartService {
+export class AsyncCartService {
 
   constructor() { }
 

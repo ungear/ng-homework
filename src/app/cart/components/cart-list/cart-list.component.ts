@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { CartService } from 'src/app/shared/services/cart.service';
+import { AsyncCartService } from 'src/app/shared/services/cart.service';
 import { Cart, CartItem } from 'src/types/cart';
 
 @Component({
@@ -13,7 +13,7 @@ export class CartListComponent {
   totalPrice: number;
   totalAmount: number;
   constructor(
-    private cartService: CartService,
+    private cartService: AsyncCartService,
     private cdr: ChangeDetectorRef
   ) {
     cartService.cart$.subscribe(x => {this.onCartUpdated(x); });

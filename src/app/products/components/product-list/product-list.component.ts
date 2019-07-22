@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../../../types/product';
-import { CartService } from 'src/app/shared/services/cart.service';
+import { AsyncCartService } from 'src/app/shared/services/cart.service';
 
 @Component({
   selector: 'app-product-list',
@@ -15,7 +15,7 @@ export class ProductListComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private cartService: CartService,
+    private cartService: AsyncCartService,
   ) { }
 
   ngOnInit() {
