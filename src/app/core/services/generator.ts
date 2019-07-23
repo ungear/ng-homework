@@ -1,15 +1,15 @@
 import { InjectionToken } from '@angular/core';
 
-const symbols = "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
+const symbols = '1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM';
 
-export function generate(n: number): string{
+export function generate(n: number): string {
   return Array(n)
     .fill(null)
     .map((x, ind) => {
-      let randomIndex = Math.floor(Math.random() * symbols.length)
-      return symbols[randomIndex]
+      const randomIndex = Math.floor(Math.random() * symbols.length);
+      return symbols[randomIndex];
     })
-    .join("")
+    .join('');
 }
 
-export const GeneratorFactoryService = new InjectionToken('GeneratorFactoryService')
+export const GeneratorFactoryService = new InjectionToken('GeneratorFactoryService');

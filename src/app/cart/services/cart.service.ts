@@ -11,23 +11,23 @@ export class CartService {
     this.setDefaultValue();
   }
 
-  addProduct(product: Product, amount: number){
+  addProduct(product: Product, amount: number) {
     const itemInCart = this.cartData.items.find(x => x.product.name === product.name);
     if (itemInCart) {
       itemInCart.amount += amount;
     } else {
-      this.cartData.items.push({product, amount: amount});
+      this.cartData.items.push({product, amount});
     }
-  
+
     this.cartData.totalAmount += amount;
     this.cartData.totalPrice += product.price * amount;
   }
 
-  removeProduct(product: Product, amount?: number){
+  removeProduct(product: Product, amount?: number) {
     const itemInCart = this.cartData.items.find(x => x.product.name === product.name);
-    if(!itemInCart) return;
+    if (!itemInCart) { return; }
 
-    let numberToRemove = amount === null ? itemInCart.amount : amount;
+    const numberToRemove = amount === null ? itemInCart.amount : amount;
     itemInCart.amount -= numberToRemove;
     this.cartData.totalAmount -= numberToRemove;
     this.cartData.totalPrice -= product.price * numberToRemove;
@@ -37,15 +37,15 @@ export class CartService {
     }
   }
 
-  cleanCart(){
+  cleanCart() {
     this.setDefaultValue();
   }
 
-  private setDefaultValue(){
+  private setDefaultValue() {
     this.cartData = {
       items: [],
       totalPrice: 0,
       totalAmount: 0,
-    }
+    };
   }
 }

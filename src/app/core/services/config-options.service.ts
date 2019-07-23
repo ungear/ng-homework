@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { CoreModule } from "../core.module";
+import { CoreModule } from '../core.module';
 
 interface Settings {
-  id?: number,
-  login?: string,
-  email?: string,
+  id?: number;
+  login?: string;
+  email?: string;
 }
 
 @Injectable({
@@ -12,16 +12,16 @@ interface Settings {
 })
 export class ConfigOptionsService {
   private settings: Settings;
-  constructor() { 
+  constructor() {
     this.settings = {};
   }
 
-  setSettings(s: Settings){
+  setSettings(s: Settings) {
     Object.keys(s)
-      .forEach(k => this.setSettings[k] = s[k])
+      .forEach(k => this.setSettings[k] = s[k]);
   }
 
-  getSettings(): Settings{
+  getSettings(): Settings {
     return this.settings;
   }
 }

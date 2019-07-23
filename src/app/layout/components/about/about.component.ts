@@ -15,7 +15,7 @@ export class AboutComponent implements OnInit {
     @Optional() private localStorageService: LocalStorageService,
     @Optional() private configOptionsService: ConfigOptionsService,
     @Optional() @Inject(ConstantsServiceInjector) private constantsService: AppConsts,
-    @Optional() @Inject(GeneratorFactoryService) private generatorFactoryService: (number) => string,
+    @Optional() @Inject(GeneratorFactoryService) private generatorFactoryService: (x: number) => string,
   ) { }
 
   ngOnInit() {

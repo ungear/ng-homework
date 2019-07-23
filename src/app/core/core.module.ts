@@ -1,8 +1,8 @@
 import { NgModule, InjectionToken } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { LocalStorageService } from './services/local-storage.service'
-import { ConstantsService, ConstantsServiceInjector } from "./services/constants.service"
+import { LocalStorageService } from './services/local-storage.service';
+import { ConstantsService, ConstantsServiceInjector } from './services/constants.service';
 import { generate, GeneratorFactoryService } from './services/generator';
 
 
@@ -12,7 +12,7 @@ import { generate, GeneratorFactoryService } from './services/generator';
   imports: [
     CommonModule
   ],
-  providers:[
+  providers: [
     { provide: LocalStorageService, useClass: LocalStorageService},
     { provide: ConstantsServiceInjector, useValue: ConstantsService},
     { provide: GeneratorFactoryService, useValue: generate}
