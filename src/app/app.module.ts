@@ -5,10 +5,12 @@ import { AppComponent } from './app.component';
 import { ProductsModule } from './products/products.module';
 import { CartModule } from './cart/cart.module';
 import { CoreModule } from './core/core.module';
+import { AboutComponent } from './layout/components/about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
