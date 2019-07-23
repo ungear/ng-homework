@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { CoreModule } from "../core.module";
 
 interface Settings {
   id?: number,
@@ -7,7 +8,7 @@ interface Settings {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: CoreModule
 })
 export class ConfigOptionsService {
   private settings: Settings;
