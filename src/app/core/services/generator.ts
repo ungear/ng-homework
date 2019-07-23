@@ -1,7 +1,15 @@
 import { InjectionToken } from '@angular/core';
 
+const symbols = "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
+
 export function generate(n: number): string{
-  return "1"
+  return Array(n)
+    .fill(null)
+    .map((x, ind) => {
+      let randomIndex = Math.floor(Math.random() * symbols.length)
+      return symbols[randomIndex]
+    })
+    .join("")
 }
 
 export const GeneratorFactoryService = new InjectionToken('GeneratorFactoryService')
