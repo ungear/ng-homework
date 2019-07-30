@@ -2,6 +2,8 @@
 ## Added
 - Show a category in upper case in the product list
 - Get productes through async pipe
+- Sort products in the list by price
+
 
 # v 2.0
 ## Added

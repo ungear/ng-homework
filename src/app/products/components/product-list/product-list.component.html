@@ -1,6 +1,6 @@
 <p>Products:</p>
 <app-product 
-  *ngFor="let p of productsCollectionPromise | async" 
+  *ngFor="let p of productsCollectionPromise | async | orderBy: 'price':true" 
   [data]="p" 
   (addToCart)="onAddToCart($event)"
   (removeFromCart)="onRemoveFromCart($event)"></app-product>

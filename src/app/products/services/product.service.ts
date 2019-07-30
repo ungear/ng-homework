@@ -21,7 +21,7 @@ export class ProductService {
       {
         name: 'Cheese',
         description: 'soft French cheese',
-        price: 1,
+        price: 5,
         category: Category.Food,
         isAvailable: true,
       },
