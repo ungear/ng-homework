@@ -11,7 +11,7 @@ import { AsyncCartService } from 'src/app/shared/services/cart.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductListComponent implements OnInit {
-  productsCollection: Product[];
+  productsCollectionPromise: Promise<Product[]>;
 
   constructor(
     private productService: ProductService,
@@ -19,7 +19,7 @@ export class ProductListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.productsCollection = this.productService.getProducts();
+    this.productsCollectionPromise = this.productService.getProducts();
   }
 
   onAddToCart(pr: Product) {

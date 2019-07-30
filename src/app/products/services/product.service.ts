@@ -9,8 +9,8 @@ export class ProductService {
 
   constructor() { }
 
-  getProducts(): Product[] {
-    return [
+  getProducts(): Promise<Product[]> {
+    const products:Product[] = [
       {
         name: 'SICP',
         description: 'a programming book',
@@ -33,5 +33,9 @@ export class ProductService {
         isAvailable: false,
       }
     ];
+    
+    return new Promise<Product[]>((resolve, reject) => {
+      setTimeout(_ => resolve(products), 500)
+    })
   }
 }
