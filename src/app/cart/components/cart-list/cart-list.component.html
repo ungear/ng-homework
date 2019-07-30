@@ -1,7 +1,13 @@
 <p>Cart</p>
 <ng-container *ngIf="cartItems.length; else emptyCart">
+  <div>
+    <span>Sort by</span>
+    <select [(ngModel)]="activeSortingOption">
+      <option *ngFor="let o of sortingOptions" [ngValue]="o">{{o.title}}</option>
+    </select>
+  </div>
   <app-cart-item 
-    *ngFor="let ci of cartItems"
+    *ngFor="let ci of cartItems | orderBy: activeSortingOption.field: true"
     [cartItem]="ci"
     (incrementAmount)="onCartItemIncrementAmount(ci)"
     (decrementAmount)="onCartItemDecrementAmount(ci)"

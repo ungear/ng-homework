@@ -19,6 +19,13 @@ export class ProductService {
         isAvailable: true,
       },
       {
+        name: 'Alice in wonderland',
+        description: 'an 1865 novel written by Lewis Carroll',
+        price: 12,
+        category: Category.Book,
+        isAvailable: true,
+      },
+      {
         name: 'Cheese',
         description: 'soft French cheese',
         price: 5,

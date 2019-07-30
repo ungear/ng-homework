@@ -3,6 +3,7 @@
 - Show a category in upper case in the product list
 - Get productes through async pipe
 - Sort products in the list by price
+- Sort products in the cart by price, amount or a name
 
 
 # v 2.0
