@@ -4,11 +4,11 @@ import { Product } from '../../../../types/product';
 
 @Component({
   selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss'],
+  templateUrl: './product-snippet.component.html',
+  styleUrls: ['./product-snippet.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProductComponent {
+export class ProductSnippetComponent {
   @Input() data: Product;
   @Output() addToCart = new EventEmitter<Product>();
   @Output() removeFromCart = new EventEmitter<Product>();
