@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ChangeDetectorRef, OnInit } from '@angular/core';
 import { CartService } from 'src/app/shared/services/cart.service';
 import { Cart, CartItem } from 'src/types/cart';
 
@@ -8,7 +8,7 @@ import { Cart, CartItem } from 'src/types/cart';
   styleUrls: ['./cart-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CartListComponent {
+export class CartListComponent implements OnInit{
   cartItems: CartItem[] = [];
   totalPrice: number;
   totalAmount: number;
@@ -17,6 +17,10 @@ export class CartListComponent {
     private cdr: ChangeDetectorRef
   ) {
     cartService.cart$.subscribe(x => {this.onCartUpdated(x); });
+  }
+
+  ngOnInit(){
+    this.onCartUpdated(this.cartService.currentCart);
   }
 
   onCartUpdated(cart: Cart) {

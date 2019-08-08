@@ -15,8 +15,10 @@ interface CartCommand {
   providedIn: 'root'
 })
 export class CartService {
-
-  constructor() { }
+  currentCart: Cart;
+  constructor() { 
+    this.cart$.subscribe(x => {this.currentCart = x});
+  }
 
   private cartCommandsSubj = new Subject<CartCommand>();
   cart$ = this.cartCommandsSubj
