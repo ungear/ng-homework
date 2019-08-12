@@ -15,7 +15,11 @@ interface CartCommand {
   providedIn: 'root'
 })
 export class CartService {
-  currentCart: Cart;
+  currentCart: Cart = {
+    items: [],
+    totalPrice: 0,
+    totalAmount: 0,
+  };
   constructor() { 
     this.cart$.subscribe(x => {this.currentCart = x});
   }
