@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { Subject } from 'rxjs';
-import { scan } from 'rxjs/operators';
+import { scan, share } from 'rxjs/operators';
 
 import { Product } from '../../../types/product';
 import { Cart } from 'src/types/cart';
@@ -26,7 +26,6 @@ export class CartService {
 
   private cartCommandsSubj = new Subject<CartCommand>();
   cart$ = this.cartCommandsSubj
-    .asObservable()
     .pipe(
       scan<CartCommand, Cart>(
         (acc, cur) => {
@@ -47,7 +46,8 @@ export class CartService {
           totalPrice: 0,
           totalAmount: 0
         }
-      )
+      ),
+      share()
     );
 
   addProductToCart(product: Product) {
