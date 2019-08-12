@@ -3,7 +3,7 @@ import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from 
 import { Product } from '../../../../types/product';
 
 @Component({
-  selector: 'app-product',
+  selector: 'app-product-snippet',
   templateUrl: './product-snippet.component.html',
   styleUrls: ['./product-snippet.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
