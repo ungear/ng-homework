@@ -1,5 +1,5 @@
 <div>
-  <div>Name: {{data.name}}</div>
+  <a [routerLink]='["/product", data.id]'>Name: {{data.name}}</a>
   <div>Description: {{data.description}}</div>
   <div>Price: {{data.price}}</div>
   <div>
