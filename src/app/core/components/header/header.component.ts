@@ -19,8 +19,8 @@ export class HeaderComponent implements OnInit {
   }
 
   private onCartUpdated(c: Cart){
-    this.itemsInCart = c && c.items && c.items.length
-      ? c.items.length
+    this.itemsInCart = c && c.totalAmount
+      ? c.totalAmount
       : 0;
   }
 
