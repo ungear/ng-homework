@@ -1,6 +1,11 @@
 <p>Products:</p>
+
 <app-product-snippet 
   *ngFor="let p of productsCollection" 
   [data]="p" 
   (addToCart)="onAddToCart($event)"
-  (removeFromCart)="onRemoveFromCart($event)"></app-product-snippet>
+  (removeFromCart)="onRemoveFromCart($event)"
+  (showDetails)="onSnippetShowDetails($event)"></app-product-snippet>
+<div>
+  <router-outlet name="productDetails"></router-outlet>
+</div>

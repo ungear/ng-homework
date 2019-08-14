@@ -3,6 +3,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../../../types/product';
 import { CartService } from 'src/app/shared/services/cart.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -16,6 +17,8 @@ export class ProductListComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private cartService: CartService,
+    private router: Router,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit() {
@@ -28,6 +31,10 @@ export class ProductListComponent implements OnInit {
 
   onRemoveFromCart(pr: Product) {
     this.cartService.removeProductFromCart(pr);
+  }
+
+  onSnippetShowDetails(pr: Product){
+    this.router.navigate([{ outlets: { productDetails: [pr.id.toString()] } }], {relativeTo: this.route}); 
   }
 
 }

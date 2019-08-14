@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router"
+import { ActivatedRoute, Router } from "@angular/router"
 import { Product } from 'src/types/product';
 import { ProductService } from '../../services/product.service';
 
@@ -11,13 +11,21 @@ import { ProductService } from '../../services/product.service';
 export class ProductDetailsComponent implements OnInit {
   product: Product;
   constructor(
-    private route:ActivatedRoute,
+    private route: ActivatedRoute,
+    private router: Router,
     private productService: ProductService
   ) { }
 
   ngOnInit() {
-    let pId = parseInt(this.route.snapshot.paramMap.get('productId'));
-    this.product = this.productService.getProductById(pId)
+    this.route.paramMap
+      .subscribe(params => {
+        let pId = parseInt(params.get('id'));
+        this.product = this.productService.getProductById(pId)
+      }) 
+  }
+
+  onClearClick(){
+    this.router.navigate([{ outlets: { productDetails: null } }]); 
   }
 
 }

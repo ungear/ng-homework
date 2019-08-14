@@ -4,18 +4,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProductListComponent } from "./components/product-list/product-list.component";
 import { ProductDetailsComponent } from "./components/product-details/product-details.component";
 
+// { path: ':productId', component: ProductDetailsComponent },
 const routes: Routes = [
-  { path: 'product', 
+  { 
+    path: 'products', 
+    component: ProductListComponent,
     children: [
-      { path: 'list', component: ProductListComponent },
-      { path: ':productId', component: ProductDetailsComponent },
+      { 
+        path: ':id', 
+        component: ProductDetailsComponent,
+        outlet: 'productDetails'
+      },
     ]
   },
-  
-  // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  // { path: 'dashboard', component: DashboardComponent },
-  // { path: 'detail/:id', component: HeroDetailComponent },
-  // { path: 'heroes', component: HeroesComponent }
 ];
 
 @NgModule({
