@@ -20,4 +20,8 @@ export class ProductDetailsComponent implements OnInit {
     let pId = parseInt(this.route.snapshot.paramMap.get('productId'));
     this.product = this.productService.getProductById(pId)
   }
+
+  onShowCommentsClick(){
+    this.router.navigate([{outlets: {comments: 'comments'}}], {relativeTo: this.route})
+  }
 }

@@ -3,3 +3,5 @@
 <div>Price: {{product.price}}</div>
 <div>Category: {{product.category}}</div>
 <div>{{product.isAvailable ? 'Available' : 'Unavailable'}}</div>
+<button (click)="onShowCommentsClick()">show comments</button>
+<router-outlet name="comments"></router-outlet>
