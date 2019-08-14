@@ -1,0 +1,21 @@
+:host{
+  display: block;
+  border: 1px solid #ccc;
+  margin: 5px;
+  padding: 5px;
+}
+
+.heading{
+  display: flex; 
+  justify-content: space-between;
+  align-items: center; 
+  margin-bottom: 10px;
+  &__name{
+    font-weight: bold;
+  }
+  &__close{
+    cursor: pointer; 
+    transform: rotate(45deg); 
+    font-weight: bold;
+  }
+}

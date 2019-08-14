@@ -1,4 +1,8 @@
-<h3>{{product.name}}</h3>
+<div class="heading">
+  <span class="heading__name">{{product.name}}</span>
+  <span class="heading__close" (click)="onClearClick()">+</span>
+</div>
 <div>Description: {{product.description}}</div>
 <div>Price: {{product.price}}</div>
-<button (click)="onClearClick()">clear</button>
+<div>Category: {{product.category}}</div>
+<div>{{product.isAvailable ? 'Available' : 'Unavailable'}}</div>

@@ -25,7 +25,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   onClearClick(){
-    this.router.navigate([{ outlets: { productDetails: null } }]); 
+    this.router.navigate([{ outlets: { productDetails: null } }], {relativeTo: this.route.parent}); 
   }
 
 }

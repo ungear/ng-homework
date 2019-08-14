@@ -1,9 +1,8 @@
+<div >
+  <span class="title" (click)="onNameClick()">{{data.name}}</span>  
+</div>
+<div>Price: {{data.price}}</div>
 <div>
-  <div (click)="onNameClick()">Name: {{data.name}}</div>
-  <div>Description: {{data.description}}</div>
-  <div>Price: {{data.price}}</div>
-  <div>
-    <button (click)="onAddClick()" [disabled]="!data.isAvailable">Add to cart</button>
-    <button (click)="onRemoveClick()" [disabled]="!data.isAvailable">Remove from cart</button>
-  </div>
+  <button (click)="onAddClick()" [disabled]="!data.isAvailable">Add to cart</button>
+  <button (click)="onRemoveClick()" [disabled]="!data.isAvailable">Remove from cart</button>
 </div>
