@@ -7,7 +7,7 @@ import { ProductDetailsComponent } from "./components/product-details/product-de
 // { path: ':productId', component: ProductDetailsComponent },
 const routes: Routes = [
   { 
-    path: 'products', 
+    path: 'products-list', 
     component: ProductListComponent,
     children: [
       { 
