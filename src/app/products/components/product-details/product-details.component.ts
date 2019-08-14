@@ -17,15 +17,7 @@ export class ProductDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.route.paramMap
-      .subscribe(params => {
-        let pId = parseInt(params.get('id'));
-        this.product = this.productService.getProductById(pId)
-      }) 
+    let pId = parseInt(this.route.snapshot.paramMap.get('productId'));
+    this.product = this.productService.getProductById(pId)
   }
-
-  onClearClick(){
-    this.router.navigate([{ outlets: { productDetails: null } }], {relativeTo: this.route.parent}); 
-  }
-
 }

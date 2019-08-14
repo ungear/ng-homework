@@ -17,6 +17,14 @@ const routes: Routes = [
       },
     ]
   },
+  { 
+    path: 'product', 
+    children: [
+      { 
+        path: ':productId', component: ProductDetailsComponent
+      },
+    ]
+  },
 ];
 
 @NgModule({

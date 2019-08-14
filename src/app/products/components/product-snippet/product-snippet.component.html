@@ -1,6 +1,5 @@
-<div >
-  <span class="title" (click)="onNameClick()">{{data.name}}</span>  
-</div>
+
+<a [routerLink]="['/product', data.id]">{{data.name}}</a>
 <div>Price: {{data.price}}</div>
 <div>
   <button (click)="onAddClick()" [disabled]="!data.isAvailable">Add to cart</button>
