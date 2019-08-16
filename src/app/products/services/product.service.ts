@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 
-import { Product, Category } from '../../../types/product';
+import { Product, Category, ProductComment } from '../../../types/product';
 
-const PRODUCTS = [
+const PRODUCTS: Product[] = [
   {
     id: 1,
     name: 'SICP',
@@ -29,6 +29,12 @@ const PRODUCTS = [
   }
 ]
 
+const COMMENTS: ProductComment[] = [
+  { productId: 1, text: "Exciting!" },
+  { productId: 2, text: "Delicious!" },
+  { productId: 2, text: "Awesome cheesee" },
+]
+
 @Injectable({
   providedIn: 'root'
 })
@@ -42,5 +48,9 @@ export class ProductService {
 
   getProductById(pId: number): Product{
     return PRODUCTS.find(x => x.id === pId)
+  }
+
+  getProductComments(pId: number): ProductComment[] {
+    return COMMENTS.filter(x => x.productId === pId)
   }
 }

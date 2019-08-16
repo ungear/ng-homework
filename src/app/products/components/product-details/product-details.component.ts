@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router"
-import { Product } from 'src/types/product';
+import { Product, ProductComment } from 'src/types/product';
 import { ProductService } from '../../services/product.service';
 
 @Component({
@@ -18,7 +18,7 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit() {
     let pId = parseInt(this.route.snapshot.paramMap.get('productId'));
-    this.product = this.productService.getProductById(pId)
+    this.product = this.productService.getProductById(pId);
   }
 
   onShowCommentsClick(){

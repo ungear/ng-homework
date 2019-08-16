@@ -1,1 +1,10 @@
-<p>comments-list works!</p>
+<div *ngIf="comments && comments.length; else noComments">
+<div>Comments:</div>
+  <div *ngFor="let c of comments">{{c.text}}</div>
+</div>
+
+<ng-template #noComments>
+  <div>
+    No Comments yet
+  </div>
+</ng-template>

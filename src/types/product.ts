@@ -7,6 +7,11 @@ export interface Product {
   isAvailable: boolean;
 }
 
+export interface ProductComment {
+  productId: number,
+  text: string;
+}
+
 export enum Category {
   Book = 'book',
   Food = 'food',
