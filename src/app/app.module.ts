@@ -6,17 +6,19 @@ import { ProductsModule } from './products/products.module';
 import { CartModule } from './cart/cart.module';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from "./core/core.module";
+import { OrderModule } from "./order/order.module";
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     ProductsModule,
     CartModule,
-    AppRoutingModule,
     CoreModule,
+    OrderModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

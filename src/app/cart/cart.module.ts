@@ -15,9 +15,6 @@ import { CartRoutingModule } from './cart-routing.module';
     CommonModule,
     SharedModule,
     CartRoutingModule
-  ],
-  exports: [
-    CartListComponent
   ]
 })
 export class CartModule { }
