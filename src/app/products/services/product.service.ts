@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Product, Category, ProductComment } from '../../../types/product';
 
-const PRODUCTS: Product[] = [
+const PRODUCTS_INITIAL_DATA: Product[] = [
   {
     id: 1,
     name: 'SICP',
@@ -39,15 +39,26 @@ const COMMENTS: ProductComment[] = [
   providedIn: 'root'
 })
 export class ProductService {
-
-  constructor() { }
+  private productsCache: Product[];
+  private readonly storageName = "ng_homework_products";
+  
+  constructor() { 
+    let lsData = localStorage.getItem(this.storageName);
+    if(lsData){
+      this.productsCache = JSON.parse(lsData);
+    }
+    else{
+      localStorage.setItem(this.storageName, JSON.stringify(PRODUCTS_INITIAL_DATA));
+      this.productsCache = PRODUCTS_INITIAL_DATA;
+    }
+  }
 
   getProducts(): Product[] {
-    return PRODUCTS;
+    return this.productsCache;
   }
 
   getProductById(pId: number): Product{
-    return PRODUCTS.find(x => x.id === pId)
+    return this.productsCache.find(x => x.id === pId)
   }
 
   getProductComments(pId: number): ProductComment[] {
